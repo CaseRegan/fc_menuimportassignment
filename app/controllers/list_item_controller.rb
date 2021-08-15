@@ -24,12 +24,6 @@ class ListItemController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
-	def update
-	end
-
 	def delete
 		lid = ListItem.find(params[:id]).lid
 		ListItem.find(params[:id]).destroy

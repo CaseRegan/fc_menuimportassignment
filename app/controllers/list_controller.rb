@@ -13,7 +13,8 @@ class ListController < ApplicationController
 	end
 
 	def create
-		@list = List.new(list_params)
+		@list = List.new
+		@list.name = params[:name]
 
 		if @list.save
 			redirect_to :action => 'list'
@@ -21,21 +22,11 @@ class ListController < ApplicationController
 			render :action => 'new'
 		end
 	end
-
-	def edit
-	end
-
-	def update
-	end
-
+	
 	def delete
 		List.find(params[:id]).destroy
 		ListItem.where(lid: params[:id]).destroy_all
 
 		redirect_to :action => 'list'
-	end
-
-	def list_params
-		params.require(:lists).permit(:name)
 	end
 end
