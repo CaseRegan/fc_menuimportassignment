@@ -1,0 +1,25 @@
+<table id = "menu_items" style="width:100%">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Category</th>
+	</tr>
+
+	<% @menu_items.each do |i| %>
+		<tr>
+			<td><%= i.name %></td>
+			<td><%= i.description %></td>
+			<td><%= i.category %></td>
+			<td>
+				<%= link_to "Add", {
+					:controller => 'list_item', 
+					:action => 'create',
+					:mid => i.id,
+					:lid => @list_id
+				}, :method => 'post' %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Back', {:controller => 'list', :action => 'show', :id => @list_id} %>

@@ -1,0 +1,11 @@
+<h3>New list</h3>
+
+<%= form_tag :action => 'create' do %>
+
+<%= label_tag "Name:" %>
+<%= text_field 'lists', 'name' %></br>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'list'} %>

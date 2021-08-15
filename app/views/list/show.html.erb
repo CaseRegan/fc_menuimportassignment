@@ -1,0 +1,26 @@
+<h3>List: <%= @list.name %></h3>
+<% if @items.blank? %>
+<p>List empty</p>
+<% else %>
+<p>List items:</p>
+
+<table id = "list_items" style="width:100%">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Category</th>
+		<th>Action</th>
+	</tr>
+	<% @items.each do |i| %>
+		<tr>
+			<td><%= MenuItem.find(i.mid).name %></td>
+			<td><%= MenuItem.find(i.mid).description %></td>
+			<td><%= MenuItem.find(i.mid).category %></td>
+			<td><%= link_to "Delete", {:controller => 'list_item', :action => 'delete', :id => i.id} %></td>
+		</tr>
+	<% end %>
+</table>
+
+<% end %>
+<p><%= link_to "Add item", {:controller => 'list_item', :action => 'new', :lid => @list.id} %></p>
+<p><%= link_to "Back", {:action => 'list'} %></p>

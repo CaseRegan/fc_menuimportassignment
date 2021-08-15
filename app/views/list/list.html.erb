@@ -1,0 +1,19 @@
+<% if @lists.blank? %>
+<p>No lists</p>
+<% else %>
+<p>Lists:</p>
+
+<ul id = "lists">
+	<% @lists.each do |l| %>
+		<li>
+			<%= l.name %>
+			<%= link_to "View", {:action => 'show', :id => l.id} -%>
+			<%= link_to "Delete", {:action => 'delete', :id => l.id} -%>
+		</li>
+	<% end %>
+</ul>
+
+<% end %>
+
+<%= link_to "New", {:action => 'new'} %></br>
+<%= link_to "Back", {:action => 'welcome'} %>

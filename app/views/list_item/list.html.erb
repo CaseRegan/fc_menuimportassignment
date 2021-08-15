@@ -1,0 +1,15 @@
+<% if @list_items.blank? %>
+<p>No list items</p>
+<% else %>
+<p>List items:</p>
+
+<ul id = "list_items">
+	<% @list_items.each do |i| %>
+		<li>
+			<%= link_to i.lid, {:action => 'show', :id => i.id} -%>
+		</li>
+	<% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "New", {:action => 'new'} %></p>
