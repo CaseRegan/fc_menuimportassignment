@@ -22,7 +22,7 @@ ListItem:
 MenuItem:
 - List (show every MenuItem in the database)
 
-**TODO VIEWS**
+The final element of this application is its views. The routes file sets a welcome page with links to a "Menu" page and a "Lists" page. The former displays every MenuItem in the database, while the second allows you to view lists and perform operations on them like creating, deleting, and editing them. Information is stored through GET parameters between pages/views to allow efficient navigation.
 
 ## Problems
 The big design problem to tackle with this assignment was how to implement a list of lists with relational databases. The approach I settled on has advantages and drawbacks, since it allows easy and fast insertion and deleting but means that the contents of a given list is not in one single place. I also faced some technical problems. For example, I started developing this application with SQLite3 as my database, but I had to switch to PostgreSQL because it wasn't supported on Heroku. I also had an issue with a Gem that segfaulted during compilation, but this could be fixed by specifying an earlier version.
