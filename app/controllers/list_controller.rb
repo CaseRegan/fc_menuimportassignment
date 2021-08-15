@@ -14,7 +14,7 @@ class ListController < ApplicationController
 
 	def create
 		@list = List.new
-		@list.name = params[:name]
+		@list.name = params[:lists][:name]
 
 		if @list.save
 			redirect_to :action => 'list'
@@ -22,7 +22,7 @@ class ListController < ApplicationController
 			render :action => 'new'
 		end
 	end
-	
+
 	def delete
 		List.find(params[:id]).destroy
 		ListItem.where(lid: params[:id]).destroy_all
